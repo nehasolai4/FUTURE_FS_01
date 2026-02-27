@@ -1,4 +1,4 @@
-import profile from '../assets/profile.jpeg'
+import profile from '../assets/Profile.jpeg'
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { useState, useEffect } from 'react';
 function Hero(){
