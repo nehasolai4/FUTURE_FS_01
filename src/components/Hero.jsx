@@ -1,12 +1,28 @@
 import profile from '../assets/profile.jpeg'
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
-
+import { useState, useEffect } from 'react';
 function Hero(){
+    const fullText = "NEHA SOLAI"
+    const [displayText, setDisplayText]=useState("");
+
+    useEffect(()=>{
+        let index=0;
+        const interval = setInterval(()=>{
+            setDisplayText(fullText.slice(0,index+1));
+            index++;
+
+            if(index===fullText.length){
+                clearInterval(interval)
+            }
+        },250)
+
+        return()=>clearInterval(interval);
+    },[])
     return(
         <div className="Hero-section">
             <div className="name">
                 <h2>Hi, I am</h2>
-                <h1>NEHA S</h1>
+                <h1 className='typing'>{displayText}</h1>
                 <p className="role">Frontend Developer | React | JavaScript | CSS</p>
                 <p className="bio">
                         Frontend developer focused on building responsive, accessible, and user-friendly web applications using React.
